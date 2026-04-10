@@ -1,0 +1,386 @@
+{
+  "version": "1.0",
+  "name": "SBTI 人格测试",
+  "description": "Soulbound Token Indicator - 找到属于你的精准人格画像",
+  "dimensions": [
+    {
+      "id": "energy",
+      "name": "能量来源",
+      "description": "你从哪里获取能量",
+      "left": { "code": "I", "name": "内敛", "desc": "独处时充电" },
+      "right": { "code": "E", "name": "外放", "desc": "社交时充电" }
+    },
+    {
+      "id": "information",
+      "name": "认知方式",
+      "description": "你如何接收信息",
+      "left": { "code": "S", "name": "实感", "desc": "关注具体细节" },
+      "right": { "code": "N", "name": "直觉", "desc": "关注整体模式" }
+    },
+    {
+      "id": "decision",
+      "name": "决策方式",
+      "description": "你如何做决定",
+      "left": { "code": "T", "name": "理性", "desc": "基于逻辑分析" },
+      "right": { "code": "F", "name": "感性", "desc": "基于价值感受" }
+    },
+    {
+      "id": "lifestyle",
+      "name": "生活态度",
+      "description": "你如何安排生活",
+      "left": { "code": "J", "name": "计划", "desc": "喜欢有序安排" },
+      "right": { "code": "P", "name": "随性", "desc": "喜欢灵活应变" }
+    },
+    {
+      "id": "selfworth",
+      "name": "自我价值",
+      "description": "你如何看待自己",
+      "left": { "code": "L", "name": "低自尊", "desc": "常自我怀疑" },
+      "right": { "code": "H", "name": "高自尊", "desc": "相信自我价值" }
+    },
+    {
+      "id": "emotion",
+      "name": "情感表达",
+      "description": "你如何处理情绪",
+      "left": { "code": "R", "name": "压抑", "desc": "内敛不表露" },
+      "right": { "code": "O", "name": "开放", "desc": "直接表达情感" }
+    },
+    {
+      "id": "risk",
+      "name": "风险偏好",
+      "description": "你面对风险的态度",
+      "left": { "code": "C", "name": "保守", "desc": "规避风险优先" },
+      "right": { "code": "D", "name": "冒险", "desc": "追求刺激挑战" }
+    },
+    {
+      "id": "control",
+      "name": "控制欲望",
+      "description": "你对掌控的需求",
+      "left": { "code": "G", "name": "放松", "desc": "顺其自然" },
+      "right": { "code": "A", "name": "掌控", "desc": "控制欲强" }
+    },
+    {
+      "id": "independence",
+      "name": "独立性",
+      "description": "你对独立的需要",
+      "left": { "code": "V", "name": "依赖", "desc": "需要他人支持" },
+      "right": { "code": "U", "name": "独立", "desc": "自给自足" }
+    },
+    {
+      "id": "outlook",
+      "name": "世界观",
+      "description": "你看待世界的方式",
+      "left": { "code": "M", "name": "悲观", "desc": "看到问题与风险" },
+      "right": { "code": "P", "name": "乐观", "desc": "看到机会与希望" }
+    },
+    {
+      "id": "reality",
+      "name": "现实感",
+      "description": "你处理现实的方式",
+      "left": { "code": "B", "name": "务实", "desc": "脚踏实地" },
+      "right": { "code": "I", "name": "理想", "desc": "追求理想" }
+    },
+    {
+      "id": "competition",
+      "name": "竞争意识",
+      "description": "你面对竞争的态度",
+      "left": { "code": "K", "name": "合作", "desc": "注重团队协作" },
+      "right": { "code": "W", "name": "竞争", "desc": "追求领先胜出" }
+    },
+    {
+      "id": "attachment",
+      "name": "依恋模式",
+      "description": "你在关系中的模式",
+      "left": { "code": "S", "name": "疏离", "desc": "保持距离" },
+      "right": { "code": "X", "name": "亲密", "desc": "渴望亲密" }
+    },
+    {
+      "id": "stability",
+      "name": "情绪稳定",
+      "description": "你情绪的波动程度",
+      "left": { "code": "Y", "name": "波动", "desc": "情绪起伏大" },
+      "right": { "code": "Z", "name": "稳定", "desc": "情绪平稳" }
+    },
+    {
+      "id": "creativity",
+      "name": "创造力",
+      "description": "你的创新思维方式",
+      "left": { "code": "Q", "name": "传统", "desc": "遵循常规" },
+      "right": { "code": "N", "name": "创新", "desc": "突破创新" }
+    }
+  ],
+  "personalities": [
+    {
+      "code": "IMSB",
+      "name": "我是傻逼",
+      "tagline": "自嘲即自由",
+      "description": "你深知自己的不完美，却从不因此自卑。自嘲是你的保护色，也是你的超能力。",
+      "traits": ["自我认知清晰", "幽默感十足", "抗压能力强"],
+      "careers": ["内容创作者", "产品经理", "脱口秀演员"],
+      "mbtiMatch": ["ENTP", "INTP"],
+      "dimensions": { "selfworth": -2, "emotion": 1, "outlook": 1 }
+    },
+    {
+      "code": "BOSS",
+      "name": "霸道总裁",
+      "tagline": "掌控一切",
+      "description": "你天生具有领导力，喜欢掌控局面，对自己和他人都有高要求。",
+      "traits": ["果断决策", "目标导向", "强势自信"],
+      "careers": ["CEO", "创业者", "项目负责人"],
+      "mbtiMatch": ["ENTJ", "ESTJ"],
+      "dimensions": { "control": 3, "decision": -2, "competition": 3 }
+    },
+    {
+      "code": "MUM",
+      "name": "操心妈妈",
+      "tagline": "全世界都要照顾好",
+      "description": "你总是忍不住关心身边每一个人，是大家的精神依靠。",
+      "traits": ["温暖体贴", "责任感强", "善于照顾他人"],
+      "careers": ["HR", "教师", "心理咨询师"],
+      "mbtiMatch": ["ESFJ", "ISFJ", "ENFJ"],
+      "dimensions": { "decision": 2, "attachment": 3, "independence": -2 }
+    },
+    {
+      "code": "FAKE",
+      "name": "伪装者",
+      "tagline": "人生如戏，全靠演技",
+      "description": "你善于在不同场合展现不同面貌，让人捉摸不透真实的你。",
+      "traits": ["适应力强", "社交高手", "神秘莫测"],
+      "careers": ["演员", "销售", "公关"],
+      "mbtiMatch": ["ENTP", "ESTP"],
+      "dimensions": { "emotion": -2, "selfworth": -1, "energy": 2 }
+    },
+    {
+      "code": "DIOR-S",
+      "name": "迪奥丝",
+      "tagline": "精致穷",
+      "description": "即使囊中羞涩，也要保持精致。你相信生活品质比存钱更重要。",
+      "traits": ["审美在线", "追求品质", "及时行乐"],
+      "careers": ["设计师", "时尚博主", "买手"],
+      "mbtiMatch": ["ESFP", "ISFP"],
+      "dimensions": { "reality": -2, "risk": 2, "lifestyle": 2 }
+    },
+    {
+      "code": "DEAD",
+      "name": "躺平尸体",
+      "tagline": "毁灭吧，累了",
+      "description": "你已经看透了社会的游戏规则，选择用自己的方式活着。",
+      "traits": ["超脱世俗", "反内卷", "佛系心态"],
+      "careers": ["自由职业", "远程工作", "提前退休"],
+      "mbtiMatch": ["INFP", "ISFP"],
+      "dimensions": { "energy": -3, "competition": -3, "outlook": -2 }
+    },
+    {
+      "code": "ZZZZ",
+      "name": "睡神",
+      "tagline": "睡觉是正经事",
+      "description": "对你来说，没有什么比睡个好觉更重要。你懂得休息的艺术。",
+      "traits": ["懂得享受", "压力释放", "随性自在"],
+      "careers": ["梦境研究员", "夜班工作者", "自由职业"],
+      "mbtiMatch": ["ISTP", "ISFP"],
+      "dimensions": { "lifestyle": 3, "energy": -2, "control": -2 }
+    },
+    {
+      "code": "GOGO",
+      "name": "永动机",
+      "tagline": "根本停不下来",
+      "description": "你精力充沛，总是停不下来。生命在于折腾是你的座右铭。",
+      "traits": ["精力旺盛", "行动派", "乐观积极"],
+      "careers": ["创业者", "运动员", "活动策划"],
+      "mbtiMatch": ["ENFP", "ENTP"],
+      "dimensions": { "energy": 3, "lifestyle": 3, "outlook": 3 }
+    },
+    {
+      "code": "FUCK",
+      "name": "暴躁老哥",
+      "tagline": "爱谁谁",
+      "description": "你不掩饰自己的情绪，有什么说什么。真实是你的标签。",
+      "traits": ["直率坦诚", "情绪外露", "不拐弯抹角"],
+      "careers": ["评论家", "维权人士", "直播主"],
+      "mbtiMatch": ["ESTP", "ENTJ"],
+      "dimensions": { "emotion": 3, "decision": -1, "control": 2 }
+    },
+    {
+      "code": "CTRL",
+      "name": "控制狂",
+      "tagline": "一切尽在掌控",
+      "description": "你喜欢一切都在计划之中，意外让你焦虑，秩序让你安心。",
+      "traits": ["完美主义", "计划周密", "细节控"],
+      "careers": ["项目经理", "会计师", "质量检测"],
+      "mbtiMatch": ["ISTJ", "ESTJ"],
+      "dimensions": { "control": 3, "lifestyle": -3, "risk": -3 }
+    },
+    {
+      "code": "HHHH",
+      "name": "哈哈哈",
+      "tagline": "笑就完事了",
+      "description": "无论什么情况，你都能找到笑点。 laughter is the best medicine。",
+      "traits": ["幽默乐观", "化解尴尬", "传播快乐"],
+      "careers": ["喜剧演员", "客服", "主播"],
+      "mbtiMatch": ["ENFP", "ESFP"],
+      "dimensions": { "outlook": 3, "emotion": 2, "stability": 2 }
+    },
+    {
+      "code": "SEXY",
+      "name": "性感尤物",
+      "tagline": "魅力值MAX",
+      "description": "你天生自带吸引力，无论外表还是气质都令人着迷。",
+      "traits": ["自信魅力", "善于表达", "情商极高"],
+      "careers": ["模特", "网红", "主持人"],
+      "mbtiMatch": ["ESFP", "ENFJ"],
+      "dimensions": { "selfworth": 3, "energy": 2, "emotion": 2 }
+    },
+    {
+      "code": "OJBK",
+      "name": "问题不大",
+      "tagline": "都行，可以，没关系",
+      "description": "你是天生的乐天派，相信一切问题最终都会解决。",
+      "traits": ["随遇而安", "心态平和", "适应力强"],
+      "careers": ["客服", "调解员", "自由职业"],
+      "mbtiMatch": ["ISFP", "ISTP"],
+      "dimensions": { "stability": 3, "outlook": 2, "control": -2 }
+    },
+    {
+      "code": "JOKE-R",
+      "name": "小丑",
+      "tagline": "逗笑别人，自己流泪",
+      "description": "你总是让别人开心，但夜深人静时，孤独感会袭来。",
+      "traits": ["奉献精神", "共情能力强", "内心敏感"],
+      "careers": ["心理咨询师", "社工", "喜剧演员"],
+      "mbtiMatch": ["INFJ", "INFP"],
+      "dimensions": { "selfworth": -2, "emotion": -1, "attachment": 2 }
+    },
+    {
+      "code": "POOR",
+      "name": "穷鬼",
+      "tagline": "贫穷限制想象力",
+      "description": "你一直在为钱发愁，但依然在努力生活。",
+      "traits": ["节俭务实", "懂得珍惜", "努力奋斗"],
+      "careers": ["任何能赚钱的工作", "副业达人"],
+      "mbtiMatch": ["ISTJ", "ISFJ"],
+      "dimensions": { "reality": 3, "risk": -2, "selfworth": -1 }
+    },
+    {
+      "code": "OH-NO",
+      "name": "倒霉蛋",
+      "tagline": "水逆专业户",
+      "description": "你似乎总是遇到各种倒霉事，但你依然笑着面对。",
+      "traits": ["乐观坚韧", "经验丰富", "抗压能力强"],
+      "careers": ["危机公关", "质检", "测试工程师"],
+      "mbtiMatch": ["ENFP", "ISFJ"],
+      "dimensions": { "outlook": 2, "stability": -2, "risk": 1 }
+    },
+    {
+      "code": "MONK",
+      "name": "出家人",
+      "tagline": "四大皆空",
+      "description": "你已经超脱了世俗的纷扰，追求内心的平静。",
+      "traits": ["内心宁静", "智慧深邃", "不为外物所动"],
+      "careers": ["研究员", "写作者", "冥想导师"],
+      "mbtiMatch": ["INTJ", "INTP"],
+      "dimensions": { "energy": -3, "competition": -3, "emotion": -2 }
+    },
+    {
+      "code": "SHIT",
+      "name": "摆烂王",
+      "tagline": "就这样吧",
+      "description": "你已经放弃了无意义的挣扎，选择按自己的节奏生活。",
+      "traits": ["反内卷", "真实自我", "不被定义"],
+      "careers": ["自由职业", "数字游民", "提前退休"],
+      "mbtiMatch": ["INFP", "ISTP"],
+      "dimensions": { "lifestyle": 3, "control": -3, "competition": -3 }
+    },
+    {
+      "code": "THAN-K",
+      "name": "感恩怪",
+      "tagline": "谢谢，有被孝到",
+      "description": "你总是心怀感恩，对生活中的小事也充满感激。",
+      "traits": ["心怀感恩", "知足常乐", "人缘极佳"],
+      "careers": ["HR", "培训师", "志愿者"],
+      "mbtiMatch": ["ESFJ", "ISFJ"],
+      "dimensions": { "outlook": 2, "selfworth": 2, "emotion": 1 }
+    },
+    {
+      "code": "MALO",
+      "name": "马喽",
+      "tagline": "社畜本畜",
+      "description": "你是千千万万个普通打工人的缩影，平凡但坚韧。",
+      "traits": ["踏实肯干", "任劳任怨", "团队基石"],
+      "careers": ["白领", "公务员", "事业单位"],
+      "mbtiMatch": ["ISTJ", "ESTJ"],
+      "dimensions": { "reality": 2, "risk": -2, "independence": -1 }
+    },
+    {
+      "code": "ATM-er",
+      "name": "提款机",
+      "tagline": "人形ATM",
+      "description": "你总是不自觉地为他人付出，包括金钱和情感。",
+      "traits": ["慷慨大方", "容易被利用", "心地善良"],
+      "careers": ["销售", "投资人", "慈善工作者"],
+      "mbtiMatch": ["ESFJ", "ISFJ"],
+      "dimensions": { "decision": 2, "selfworth": -2, "attachment": 2 }
+    },
+    {
+      "code": "THIN-K",
+      "name": "思想家",
+      "tagline": "我想想",
+      "description": "你喜欢深入思考问题，不轻易下结论。",
+      "traits": ["深度思考", "理性分析", "追求真理"],
+      "careers": ["研究员", "分析师", "哲学家"],
+      "mbtiMatch": ["INTP", "INTJ"],
+      "dimensions": { "information": 3, "decision": -2, "creativity": 2 }
+    },
+    {
+      "code": "SOLO",
+      "name": "独行者",
+      "tagline": "一个人挺好",
+      "description": "你享受独处的时光，不需要太多社交也能活得精彩。",
+      "traits": ["独立自主", "内心丰富", "自给自足"],
+      "careers": ["作家", "程序员", "艺术家"],
+      "mbtiMatch": ["INTJ", "ISTP"],
+      "dimensions": { "energy": -3, "independence": 3, "attachment": -3 }
+    },
+    {
+      "code": "LOVE-R",
+      "name": "恋爱脑",
+      "tagline": "恋爱大过天",
+      "description": "一旦陷入爱情，你就会全身心投入，爱情是你的氧气。",
+      "traits": ["浪漫多情", "为爱奋不顾身", "情感丰富"],
+      "careers": ["婚礼策划", "情感博主", "小说作者"],
+      "mbtiMatch": ["ENFP", "INFP"],
+      "dimensions": { "decision": 3, "attachment": 3, "stability": -2 }
+    },
+    {
+      "code": "WOC!",
+      "name": "震惊体",
+      "tagline": "卧槽！",
+      "description": "你对世界充满好奇，总是能被各种事物震惊到。",
+      "traits": ["好奇心强", "反应夸张", "充满活力"],
+      "careers": ["记者", "探险家", "主播"],
+      "mbtiMatch": ["ENFP", "ENTP"],
+      "dimensions": { "information": 2, "energy": 2, "outlook": 2 }
+    },
+    {
+      "code": "DRUNK",
+      "name": "醉鬼",
+      "tagline": "微醺人生",
+      "description": "你喜欢那种微醺的感觉，让自己暂时逃离现实。",
+      "traits": ["借酒浇愁", "真性情", "逃避现实"],
+      "careers": ["调酒师", "夜店DJ", "诗人"],
+      "mbtiMatch": ["ISFP", "INFP"],
+      "dimensions": { "reality": -2, "stability": -2, "emotion": 2 },
+      "hidden": true
+    },
+    {
+      "code": "IMFW",
+      "name": "我是富婆",
+      "tagline": "钱不是问题",
+      "description": "你拥有让所有人羡慕的财富，是你的底气。",
+      "traits": ["财务自由", "底气十足", "精致生活"],
+      "careers": ["投资人", "收藏家", "名媛"],
+      "mbtiMatch": ["ENTJ", "ESTJ"],
+      "dimensions": { "selfworth": 3, "risk": 2, "control": 1 },
+      "hidden": true
+    }
+  ]
+}

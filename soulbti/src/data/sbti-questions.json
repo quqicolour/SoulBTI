@@ -1,0 +1,964 @@
+{
+  "questions": [
+    {
+      "id": "q1",
+      "dimension": "energy",
+      "mbti": true,
+      "text": "快考试了，学校规定必须上晚自习，请假会扣分。但你暗恋三年的人突然约你今晚开黑，你会...",
+      "options": [
+        { "label": "翘了！反正就一次！", "value": 2, "side": "E" },
+        { "label": "干脆请个假吧。", "value": 1, "side": "E" },
+        { "label": "都快考试了还去啥。", "value": -1, "side": "I" },
+        { "label": "本来也不想见人，正好有理由。", "value": -2, "side": "I" }
+      ]
+    },
+    {
+      "id": "q2",
+      "dimension": "selfworth",
+      "mbti": false,
+      "text": "我不够好，周围的人都比我优秀",
+      "options": [
+        { "label": "确实", "value": -2, "side": "L" },
+        { "label": "有时", "value": -1, "side": "L" },
+        { "label": "不是", "value": 1, "side": "H" },
+        { "label": "我才是最优秀的", "value": 2, "side": "H" }
+      ]
+    },
+    {
+      "id": "q3",
+      "dimension": "energy",
+      "mbti": true,
+      "text": "朋友突然带着TA刚认识三天的对象来蹭饭，你的第一反应是",
+      "options": [
+        { "label": "兴奋，新朋友！", "value": 2, "side": "E" },
+        { "label": "礼貌寒暄", "value": 1, "side": "E" },
+        { "label": "沉默观察", "value": -1, "side": "I" },
+        { "label": "找借口离开", "value": -2, "side": "I" }
+      ]
+    },
+    {
+      "id": "q4",
+      "dimension": "control",
+      "mbti": false,
+      "text": "你精心策划了一周的周末旅行，结果朋友突然说'要不咱们改去网吧开黑吧'，你会",
+      "options": [
+        { "label": "很生气，计划必须执行", "value": 2, "side": "A" },
+        { "label": "有点不舒服", "value": 1, "side": "A" },
+        { "label": "无所谓，随机应变", "value": -1, "side": "G" },
+        { "label": "太好了，本来也不想按计划", "value": -2, "side": "G" }
+      ]
+    },
+    {
+      "id": "q5",
+      "dimension": "emotion",
+      "mbti": false,
+      "text": "深夜emo了，你的常规操作是",
+      "options": [
+        { "label": "发朋友圈/找人倾诉", "value": 2, "side": "O" },
+        { "label": "跟最亲密的人说", "value": 1, "side": "O" },
+        { "label": "自己消化", "value": -1, "side": "R" },
+        { "label": "假装没事", "value": -2, "side": "R" }
+      ]
+    },
+    {
+      "id": "q6",
+      "dimension": "risk",
+      "mbti": false,
+      "text": "假如你突然有了10万块的意外之财（别问哪来的），你会怎么处置它",
+      "options": [
+        { "label": "高风险高回报", "value": 2, "side": "D" },
+        { "label": "中等风险", "value": 1, "side": "D" },
+        { "label": "稳健保本", "value": -1, "side": "C" },
+        { "label": "只存银行", "value": -2, "side": "C" }
+      ]
+    },
+    {
+      "id": "q7",
+      "dimension": "decision",
+      "mbti": true,
+      "text": "半年前借给朋友的500块钱至今杳无音讯，你决定",
+      "options": [
+        { "label": "直接要，亲兄弟明算账", "value": -2, "side": "T" },
+        { "label": "暗示提醒", "value": -1, "side": "T" },
+        { "label": "算了，友情重要", "value": 1, "side": "F" },
+        { "label": "就当认清一个人", "value": 2, "side": "F" }
+      ]
+    },
+    {
+      "id": "q8",
+      "dimension": "information",
+      "mbti": true,
+      "text": "买了一堆网课准备自学Python，结果你的学习方式是",
+      "options": [
+        { "label": "先理解整体框架", "value": 2, "side": "N" },
+        { "label": "边做边学", "value": 1, "side": "N" },
+        { "label": "一步步按教程来", "value": -1, "side": "S" },
+        { "label": "先看细节原理", "value": -2, "side": "S" }
+      ]
+    },
+    {
+      "id": "q9",
+      "dimension": "lifestyle",
+      "mbti": true,
+      "text": "明天就要出发去旅行了，此刻你的行李箱状态是",
+      "options": [
+        { "label": "详细规划每一天", "value": -2, "side": "J" },
+        { "label": "大概规划一下", "value": -1, "side": "J" },
+        { "label": "只订机票酒店", "value": 1, "side": "P" },
+        { "label": "说走就走", "value": 2, "side": "P" }
+      ]
+    },
+    {
+      "id": "q10",
+      "dimension": "independence",
+      "mbti": false,
+      "text": "电脑突然死机，明天就要交的报告还没保存，你的第一反应是",
+      "options": [
+        { "label": "自己解决", "value": 2, "side": "U" },
+        { "label": "尝试自己解决，不行再求助", "value": 1, "side": "U" },
+        { "label": "找朋友帮忙", "value": -1, "side": "V" },
+        { "label": "希望有人能主动帮我", "value": -2, "side": "V" }
+      ]
+    },
+    {
+      "id": "q11",
+      "dimension": "outlook",
+      "mbti": false,
+      "text": "如果有个算命先生说'你十年后还是现在这样'，你会",
+      "options": [
+        { "label": "充满期待，一定会更好", "value": 2, "side": "P" },
+        { "label": "谨慎乐观", "value": 1, "side": "P" },
+        { "label": "走一步看一步", "value": -1, "side": "M" },
+        { "label": "觉得会更糟", "value": -2, "side": "M" }
+      ]
+    },
+    {
+      "id": "q12",
+      "dimension": "attachment",
+      "mbti": false,
+      "text": "对象说你'能不能别老黏着我'，你会怎么理解这句话",
+      "options": [
+        { "label": "希望时刻在一起", "value": 2, "side": "X" },
+        { "label": "喜欢黏人但也需要空间", "value": 1, "side": "X" },
+        { "label": "需要较多个人空间", "value": -1, "side": "S" },
+        { "label": "害怕太亲密", "value": -2, "side": "S" }
+      ]
+    },
+    {
+      "id": "q13",
+      "dimension": "competition",
+      "mbti": false,
+      "text": "发现同事买了和你一样的限量款包包但比你便宜200块，你会",
+      "options": [
+        { "label": "非常兴奋，要赢", "value": 2, "side": "W" },
+        { "label": "努力争取优势", "value": 1, "side": "W" },
+        { "label": "专注做好自己的事", "value": -1, "side": "K" },
+        { "label": "尽量避免竞争", "value": -2, "side": "K" }
+      ]
+    },
+    {
+      "id": "q14",
+      "dimension": "stability",
+      "mbti": false,
+      "text": "如果你是一盆盆栽，你觉得自己是",
+      "options": [
+        { "label": "非常平稳，很少波动", "value": 2, "side": "Z" },
+        { "label": "比较平稳", "value": 1, "side": "Z" },
+        { "label": "起伏较大", "value": -1, "side": "Y" },
+        { "label": "大起大落", "value": -2, "side": "Y" }
+      ]
+    },
+    {
+      "id": "q15",
+      "dimension": "creativity",
+      "mbti": false,
+      "text": "家里的WiFi突然连不上了，你会",
+      "options": [
+        { "label": "总想找新方法", "value": 2, "side": "N" },
+        { "label": "尝试改进现有方法", "value": 1, "side": "N" },
+        { "label": "用熟悉的方法", "value": -1, "side": "Q" },
+        { "label": "严格按照标准流程", "value": -2, "side": "Q" }
+      ]
+    },
+    {
+      "id": "q16",
+      "dimension": "reality",
+      "mbti": false,
+      "text": "如果现在有个时光机能带你回到过去，你会选择",
+      "options": [
+        { "label": "脚踏实地活在当下", "value": 2, "side": "B" },
+        { "label": "兼顾现实和理想", "value": 1, "side": "B" },
+        { "label": "追求理想世界", "value": -1, "side": "I" },
+        { "label": "完全活在幻想中", "value": -2, "side": "I" }
+      ]
+    },
+    {
+      "id": "q17",
+      "dimension": "energy",
+      "mbti": true,
+      "text": "一场持续4小时的KTV聚会结束后，你感觉像是",
+      "options": [
+        { "label": "兴奋，还想继续玩", "value": 2, "side": "E" },
+        { "label": "开心但有点累", "value": 1, "side": "E" },
+        { "label": "很疲惫需要休息", "value": -1, "side": "I" },
+        { "label": "精疲力竭", "value": -2, "side": "I" }
+      ]
+    },
+    {
+      "id": "q18",
+      "dimension": "selfworth",
+      "mbti": false,
+      "text": "有人在朋友圈阴阳怪气说你，你会",
+      "options": [
+        { "label": "完全不受影响", "value": 2, "side": "H" },
+        { "label": "选择性听取", "value": 1, "side": "H" },
+        { "label": "会难过很久", "value": -1, "side": "L" },
+        { "label": "觉得我就是这么差", "value": -2, "side": "L" }
+      ]
+    },
+    {
+      "id": "q19",
+      "dimension": "emotion",
+      "mbti": false,
+      "text": "看到《忠犬八公》那种催泪弹电影，你会",
+      "options": [
+        { "label": "大声哭泣", "value": 2, "side": "O" },
+        { "label": "默默流泪", "value": 1, "side": "O" },
+        { "label": "心里感动但面无表情", "value": -1, "side": "R" },
+        { "label": "觉得没什么好哭的", "value": -2, "side": "R" }
+      ]
+    },
+    {
+      "id": "q20",
+      "dimension": "risk",
+      "mbti": false,
+      "text": "有个机会能让你的存款翻倍，但也有可能全部打水漂，你会",
+      "options": [
+        { "label": "毫不犹豫all in", "value": 2, "side": "D" },
+        { "label": "投入一部分试试", "value": 1, "side": "D" },
+        { "label": "再观望一下", "value": -1, "side": "C" },
+        { "label": "肯定不碰", "value": -2, "side": "C" }
+      ]
+    },
+    {
+      "id": "q21",
+      "dimension": "control",
+      "mbti": false,
+      "text": "小组作业deadline前夜，组员还在躺平，你会",
+      "options": [
+        { "label": "我来领导指挥", "value": 2, "side": "A" },
+        { "label": "参与决策", "value": 1, "side": "A" },
+        { "label": "听安排就好", "value": -1, "side": "G" },
+        { "label": "别来烦我", "value": -2, "side": "G" }
+      ]
+    },
+    {
+      "id": "q22",
+      "dimension": "decision",
+      "mbti": true,
+      "text": "如果只能选一份工作，你会优先选",
+      "options": [
+        { "label": "薪资和发展", "value": -2, "side": "T" },
+        { "label": "工作内容本身", "value": -1, "side": "T" },
+        { "label": "团队氛围", "value": 1, "side": "F" },
+        { "label": "是否符合兴趣", "value": 2, "side": "F" }
+      ]
+    },
+    {
+      "id": "q23",
+      "dimension": "information",
+      "mbti": true,
+      "text": "给朋友讲'我昨天遇到一件超离谱的事'，你会怎么开头",
+      "options": [
+        { "label": "先说整体情况", "value": 2, "side": "N" },
+        { "label": "说重点", "value": 1, "side": "N" },
+        { "label": "按时间顺序讲", "value": -1, "side": "S" },
+        { "label": "描述具体细节", "value": -2, "side": "S" }
+      ]
+    },
+    {
+      "id": "q24",
+      "dimension": "lifestyle",
+      "mbti": true,
+      "text": "如果突然有 crush 要造访你家，你现在的房间状态需要你",
+      "options": [
+        { "label": "井井有条", "value": -2, "side": "J" },
+        { "label": "有点乱但知道东西在哪", "value": -1, "side": "J" },
+        { "label": "比较凌乱", "value": 1, "side": "P" },
+        { "label": "一片混乱", "value": 2, "side": "P" }
+      ]
+    },
+    {
+      "id": "q25",
+      "dimension": "independence",
+      "mbti": false,
+      "text": "你多久需要和朋友见一次面",
+      "options": [
+        { "label": "几个月见一次就行", "value": 2, "side": "U" },
+        { "label": "几周见一次", "value": 1, "side": "U" },
+        { "label": "每周都要见", "value": -1, "side": "V" },
+        { "label": "几乎每天都要联系", "value": -2, "side": "V" }
+      ]
+    },
+    {
+      "id": "q26",
+      "dimension": "outlook",
+      "mbti": false,
+      "text": "半杯水在你面前，你觉得",
+      "options": [
+        { "label": "还有半杯呢", "value": 2, "side": "P" },
+        { "label": "正好半杯", "value": 1, "side": "P" },
+        { "label": "只剩半杯了", "value": -1, "side": "M" },
+        { "label": "杯子可能有漏洞", "value": -2, "side": "M" }
+      ]
+    },
+    {
+      "id": "q27",
+      "dimension": "attachment",
+      "mbti": false,
+      "text": "分手后，你",
+      "options": [
+        { "label": "很快走出来", "value": -2, "side": "S" },
+        { "label": "难过一段时间", "value": -1, "side": "S" },
+        { "label": "很难走出来", "value": 1, "side": "X" },
+        { "label": "一直纠缠", "value": 2, "side": "X" }
+      ]
+    },
+    {
+      "id": "q28",
+      "dimension": "competition",
+      "mbti": false,
+      "text": "玩游戏时，你",
+      "options": [
+        { "label": "必须赢", "value": 2, "side": "W" },
+        { "label": "尽力而为", "value": 1, "side": "W" },
+        { "label": "开心就好", "value": -1, "side": "K" },
+        { "label": "输赢无所谓", "value": -2, "side": "K" }
+      ]
+    },
+    {
+      "id": "q29",
+      "dimension": "stability",
+      "mbti": false,
+      "text": "遇到突发状况，你",
+      "options": [
+        { "label": "冷静应对", "value": 2, "side": "Z" },
+        { "label": "有点慌但能处理", "value": 1, "side": "Z" },
+        { "label": "比较慌张", "value": -1, "side": "Y" },
+        { "label": "完全崩溃", "value": -2, "side": "Y" }
+      ]
+    },
+    {
+      "id": "q30",
+      "dimension": "creativity",
+      "mbti": false,
+      "text": "你更喜欢哪种艺术",
+      "options": [
+        { "label": "抽象前卫的", "value": 2, "side": "N" },
+        { "label": "有创意的", "value": 1, "side": "N" },
+        { "label": "经典传统的", "value": -1, "side": "Q" },
+        { "label": "写实具象的", "value": -2, "side": "Q" }
+      ]
+    },
+    {
+      "id": "q31",
+      "dimension": "reality",
+      "mbti": false,
+      "text": "关于梦想，你",
+      "options": [
+        { "label": "正在脚踏实地实现", "value": 2, "side": "B" },
+        { "label": "偶尔幻想但立足现实", "value": 1, "side": "B" },
+        { "label": "经常幻想", "value": -1, "side": "I" },
+        { "label": "活在梦想世界", "value": -2, "side": "I" }
+      ]
+    },
+    {
+      "id": "q32",
+      "dimension": "energy",
+      "mbti": true,
+      "text": "你理想的周末是",
+      "options": [
+        { "label": "各种社交活动", "value": 2, "side": "E" },
+        { "label": "和朋友小聚", "value": 1, "side": "E" },
+        { "label": "在家休息", "value": -1, "side": "I" },
+        { "label": "完全独处", "value": -2, "side": "I" }
+      ]
+    },
+    {
+      "id": "q33",
+      "dimension": "selfworth",
+      "mbti": false,
+      "text": "你觉得自己的价值",
+      "options": [
+        { "label": "非常高", "value": 2, "side": "H" },
+        { "label": "还可以", "value": 1, "side": "H" },
+        { "label": "一般", "value": -1, "side": "L" },
+        { "label": "很低", "value": -2, "side": "L" }
+      ]
+    },
+    {
+      "id": "q34",
+      "dimension": "emotion",
+      "mbti": false,
+      "text": "开心的时候，你会",
+      "options": [
+        { "label": "告诉所有人", "value": 2, "side": "O" },
+        { "label": "分享朋友圈", "value": 1, "side": "O" },
+        { "label": "自己偷着乐", "value": -1, "side": "R" },
+        { "label": "没有什么开心的", "value": -2, "side": "R" }
+      ]
+    },
+    {
+      "id": "q35",
+      "dimension": "risk",
+      "mbti": false,
+      "text": "去游乐场，你",
+      "options": [
+        { "label": "直奔最刺激的项目", "value": 2, "side": "D" },
+        { "label": "尝试几个刺激项目", "value": 1, "side": "D" },
+        { "label": "只玩温和项目", "value": -1, "side": "C" },
+        { "label": "不敢玩", "value": -2, "side": "C" }
+      ]
+    },
+    {
+      "id": "q36",
+      "dimension": "control",
+      "mbti": false,
+      "text": "当别人不按你的想法做事",
+      "options": [
+        { "label": "非常难受", "value": 2, "side": "A" },
+        { "label": "有点不舒服", "value": 1, "side": "A" },
+        { "label": "尊重对方方式", "value": -1, "side": "G" },
+        { "label": "完全不care", "value": -2, "side": "G" }
+      ]
+    },
+    {
+      "id": "q37",
+      "dimension": "decision",
+      "mbti": true,
+      "text": "朋友找你诉苦，你会",
+      "options": [
+        { "label": "分析原因给建议", "value": -2, "side": "T" },
+        { "label": "帮忙想办法", "value": -1, "side": "T" },
+        { "label": "倾听陪伴", "value": 1, "side": "F" },
+        { "label": "共情安慰", "value": 2, "side": "F" }
+      ]
+    },
+    {
+      "id": "q38",
+      "dimension": "information",
+      "mbti": true,
+      "text": "看地图时，你更关注",
+      "options": [
+        { "label": "整体方向感", "value": 2, "side": "N" },
+        { "label": "大致位置", "value": 1, "side": "N" },
+        { "label": "具体街道名", "value": -1, "side": "S" },
+        { "label": "精确坐标距离", "value": -2, "side": "S" }
+      ]
+    },
+    {
+      "id": "q39",
+      "dimension": "lifestyle",
+      "mbti": true,
+      "text": "截止日期前，你通常",
+      "options": [
+        { "label": "提前完成", "value": -2, "side": "J" },
+        { "label": "按计划完成", "value": -1, "side": "J" },
+        { "label": "最后冲刺", "value": 1, "side": "P" },
+        { "label": "经常延期", "value": 2, "side": "P" }
+      ]
+    },
+    {
+      "id": "q40",
+      "dimension": "independence",
+      "mbti": false,
+      "text": "独自吃饭时，你",
+      "options": [
+        { "label": "很享受", "value": 2, "side": "U" },
+        { "label": "无所谓", "value": 1, "side": "U" },
+        { "label": "有点尴尬", "value": -1, "side": "V" },
+        { "label": "非常不自在", "value": -2, "side": "V" }
+      ]
+    },
+    {
+      "id": "q41",
+      "dimension": "outlook",
+      "mbti": false,
+      "text": "遇到困难时，你通常想",
+      "options": [
+        { "label": "一定有办法解决", "value": 2, "side": "P" },
+        { "label": "试试看", "value": 1, "side": "P" },
+        { "label": "可能很难解决", "value": -1, "side": "M" },
+        { "label": "肯定解决不了了", "value": -2, "side": "M" }
+      ]
+    },
+    {
+      "id": "q42",
+      "dimension": "attachment",
+      "mbti": false,
+      "text": "你觉得爱一个人应该",
+      "options": [
+        { "label": "完全占有", "value": 2, "side": "X" },
+        { "label": "时刻在一起", "value": 1, "side": "X" },
+        { "label": "保持适当距离", "value": -1, "side": "S" },
+        { "label": "互相独立", "value": -2, "side": "S" }
+      ]
+    },
+    {
+      "id": "q43",
+      "dimension": "competition",
+      "mbti": false,
+      "text": "看到别人比你优秀，你",
+      "options": [
+        { "label": "想超过ta", "value": 2, "side": "W" },
+        { "label": "激励自己进步", "value": 1, "side": "W" },
+        { "label": "为ta高兴", "value": -1, "side": "K" },
+        { "label": "没什么感觉", "value": -2, "side": "K" }
+      ]
+    },
+    {
+      "id": "q44",
+      "dimension": "stability",
+      "mbti": false,
+      "text": "别人对你的评价",
+      "options": [
+        { "label": "很稳定", "value": 2, "side": "Z" },
+        { "label": "基本一致", "value": 1, "side": "Z" },
+        { "label": "有时不同", "value": -1, "side": "Y" },
+        { "label": "完全相反", "value": -2, "side": "Y" }
+      ]
+    },
+    {
+      "id": "q45",
+      "dimension": "creativity",
+      "mbti": false,
+      "text": "你的穿衣风格",
+      "options": [
+        { "label": "独特前卫", "value": 2, "side": "N" },
+        { "label": "有自己的风格", "value": 1, "side": "N" },
+        { "label": "随大流", "value": -1, "side": "Q" },
+        { "label": "一成不变", "value": -2, "side": "Q" }
+      ]
+    },
+    {
+      "id": "q46",
+      "dimension": "reality",
+      "mbti": false,
+      "text": "对于生活，你",
+      "options": [
+        { "label": "立足于现实", "value": 2, "side": "B" },
+        { "label": "现实为主理想为辅", "value": 1, "side": "B" },
+        { "label": "理想为主现实为辅", "value": -1, "side": "I" },
+        { "label": "完全理想化", "value": -2, "side": "I" }
+      ]
+    },
+    {
+      "id": "q47",
+      "dimension": "energy",
+      "mbti": true,
+      "text": "在人群中，你通常",
+      "options": [
+        { "label": "成为焦点", "value": 2, "side": "E" },
+        { "label": "活跃参与", "value": 1, "side": "E" },
+        { "label": "安静观察", "value": -1, "side": "I" },
+        { "label": "躲在角落", "value": -2, "side": "I" }
+      ]
+    },
+    {
+      "id": "q48",
+      "dimension": "selfworth",
+      "mbti": false,
+      "text": "你觉得被爱的前提是",
+      "options": [
+        { "label": "我本身就值得被爱", "value": 2, "side": "H" },
+        { "label": "我有一些优点", "value": 1, "side": "H" },
+        { "label": "我对别人好", "value": -1, "side": "L" },
+        { "label": "我不配被爱", "value": -2, "side": "L" }
+      ]
+    },
+    {
+      "id": "q49",
+      "dimension": "emotion",
+      "mbti": false,
+      "text": "生气的时候，你会",
+      "options": [
+        { "label": "当场爆发", "value": 2, "side": "O" },
+        { "label": "表达不满", "value": 1, "side": "O" },
+        { "label": "冷处理", "value": -1, "side": "R" },
+        { "label": "自己消化", "value": -2, "side": "R" }
+      ]
+    },
+    {
+      "id": "q50",
+      "dimension": "risk",
+      "mbti": false,
+      "text": "换工作/转行，你会",
+      "options": [
+        { "label": "立刻行动", "value": 2, "side": "D" },
+        { "label": "做好准备就换", "value": 1, "side": "D" },
+        { "label": "非常谨慎", "value": -1, "side": "C" },
+        { "label": "不敢换", "value": -2, "side": "C" }
+      ]
+    },
+    {
+      "id": "q51",
+      "dimension": "control",
+      "mbti": false,
+      "text": "你的生活",
+      "options": [
+        { "label": "完全在掌控中", "value": 2, "side": "A" },
+        { "label": "大致可控", "value": 1, "side": "A" },
+        { "label": "随波逐流", "value": -1, "side": "G" },
+        { "label": "一团混乱", "value": -2, "side": "G" }
+      ]
+    },
+    {
+      "id": "q52",
+      "dimension": "decision",
+      "mbti": true,
+      "text": "做选择时，你更相信",
+      "options": [
+        { "label": "逻辑分析", "value": -2, "side": "T" },
+        { "label": "利弊权衡", "value": -1, "side": "T" },
+        { "label": "内心感受", "value": 1, "side": "F" },
+        { "label": "直觉判断", "value": 2, "side": "F" }
+      ]
+    },
+    {
+      "id": "q53",
+      "dimension": "information",
+      "mbti": true,
+      "text": "学习时，你更喜欢",
+      "options": [
+        { "label": "理解概念原理", "value": 2, "side": "N" },
+        { "label": "建立知识框架", "value": 1, "side": "N" },
+        { "label": "记忆具体事实", "value": -1, "side": "S" },
+        { "label": "练习实际操作", "value": -2, "side": "S" }
+      ]
+    },
+    {
+      "id": "q54",
+      "dimension": "lifestyle",
+      "mbti": true,
+      "text": "你的日程表",
+      "options": [
+        { "label": "精确到每小时", "value": -2, "side": "J" },
+        { "label": "大致规划", "value": -1, "side": "J" },
+        { "label": "只记重要事项", "value": 1, "side": "P" },
+        { "label": "没有日程表", "value": 2, "side": "P" }
+      ]
+    },
+    {
+      "id": "q55",
+      "dimension": "independence",
+      "mbti": false,
+      "text": "你更能接受",
+      "options": [
+        { "label": "长期独居", "value": 2, "side": "U" },
+        { "label": "偶尔独处", "value": 1, "side": "U" },
+        { "label": "有人陪伴", "value": -1, "side": "V" },
+        { "label": "必须有人陪", "value": -2, "side": "V" }
+      ]
+    },
+    {
+      "id": "q56",
+      "dimension": "outlook",
+      "mbti": false,
+      "text": "对于明天，你觉得",
+      "options": [
+        { "label": "会更好", "value": 2, "side": "P" },
+        { "label": "差不多", "value": 1, "side": "P" },
+        { "label": "可能更糟", "value": -1, "side": "M" },
+        { "label": "肯定很糟", "value": -2, "side": "M" }
+      ]
+    },
+    {
+      "id": "q57",
+      "dimension": "attachment",
+      "mbti": false,
+      "text": "你对亲密关系的依赖程度",
+      "options": [
+        { "label": "非常高", "value": 2, "side": "X" },
+        { "label": "比较高", "value": 1, "side": "X" },
+        { "label": "一般", "value": -1, "side": "S" },
+        { "label": "很低", "value": -2, "side": "S" }
+      ]
+    },
+    {
+      "id": "q58",
+      "dimension": "competition",
+      "mbti": false,
+      "text": "你如何看待输赢",
+      "options": [
+        { "label": "赢就是一切", "value": 2, "side": "W" },
+        { "label": "赢很重要", "value": 1, "side": "W" },
+        { "label": "过程更重要", "value": -1, "side": "K" },
+        { "label": "无所谓输赢", "value": -2, "side": "K" }
+      ]
+    },
+    {
+      "id": "q59",
+      "dimension": "stability",
+      "mbti": false,
+      "text": "压力大的时候，你",
+      "options": [
+        { "label": "依然冷静", "value": 2, "side": "Z" },
+        { "label": "有点焦虑但能控制", "value": 1, "side": "Z" },
+        { "label": "情绪受影响", "value": -1, "side": "Y" },
+        { "label": "完全崩溃", "value": -2, "side": "Y" }
+      ]
+    },
+    {
+      "id": "q60",
+      "dimension": "creativity",
+      "mbti": false,
+      "text": "面对规则，你通常",
+      "options": [
+        { "label": "想办法突破", "value": 2, "side": "N" },
+        { "label": "灵活变通", "value": 1, "side": "N" },
+        { "label": "遵守规则", "value": -1, "side": "Q" },
+        { "label": "严格遵守", "value": -2, "side": "Q" }
+      ]
+    },
+    {
+      "id": "q61",
+      "dimension": "reality",
+      "mbti": false,
+      "text": "你更关注",
+      "options": [
+        { "label": "当下的现实", "value": 2, "side": "B" },
+        { "label": "现实与未来的平衡", "value": 1, "side": "B" },
+        { "label": "未来的可能", "value": -1, "side": "I" },
+        { "label": "美好的幻想", "value": -2, "side": "I" }
+      ]
+    },
+    {
+      "id": "q62",
+      "dimension": "energy",
+      "mbti": true,
+      "text": "在社交场合，你",
+      "options": [
+        { "label": "越聊越兴奋", "value": 2, "side": "E" },
+        { "label": "轻松自在", "value": 1, "side": "E" },
+        { "label": "有点累", "value": -1, "side": "I" },
+        { "label": "极度消耗", "value": -2, "side": "I" }
+      ]
+    },
+    {
+      "id": "q63",
+      "dimension": "selfworth",
+      "mbti": false,
+      "text": "当别人表扬你时，你",
+      "options": [
+        { "label": "欣然接受", "value": 2, "side": "H" },
+        { "label": "表示感谢", "value": 1, "side": "H" },
+        { "label": "觉得只是客套", "value": -1, "side": "L" },
+        { "label": "觉得不配", "value": -2, "side": "L" }
+      ]
+    },
+    {
+      "id": "q64",
+      "dimension": "emotion",
+      "mbti": false,
+      "text": "尴尬的时候，你",
+      "options": [
+        { "label": "自嘲化解", "value": 2, "side": "O" },
+        { "label": "直接说尴尬", "value": 1, "side": "O" },
+        { "label": "假装没事", "value": -1, "side": "R" },
+        { "label": "内心煎熬", "value": -2, "side": "R" }
+      ]
+    },
+    {
+      "id": "q65",
+      "dimension": "risk",
+      "mbti": false,
+      "text": "你对待金钱的态度",
+      "options": [
+        { "label": "钱是赚来花的", "value": 2, "side": "D" },
+        { "label": "适度消费", "value": 1, "side": "D" },
+        { "label": "能省则省", "value": -1, "side": "C" },
+        { "label": "只存不花", "value": -2, "side": "C" }
+      ]
+    },
+    {
+      "id": "q66",
+      "dimension": "control",
+      "mbti": false,
+      "text": "你对变化的接受程度",
+      "options": [
+        { "label": "很抗拒", "value": 2, "side": "A" },
+        { "label": "不太喜欢", "value": 1, "side": "A" },
+        { "label": "可以接受", "value": -1, "side": "G" },
+        { "label": "喜欢变化", "value": -2, "side": "G" }
+      ]
+    },
+    {
+      "id": "q67",
+      "dimension": "decision",
+      "mbti": true,
+      "text": "评价一件事，你更看重",
+      "options": [
+        { "label": "公平公正", "value": -2, "side": "T" },
+        { "label": "效率结果", "value": -1, "side": "T" },
+        { "label": "感受体验", "value": 1, "side": "F" },
+        { "label": "和谐氛围", "value": 2, "side": "F" }
+      ]
+    },
+    {
+      "id": "q68",
+      "dimension": "information",
+      "mbti": true,
+      "text": "你更信任",
+      "options": [
+        { "label": "第六感", "value": 2, "side": "N" },
+        { "label": "整体印象", "value": 1, "side": "N" },
+        { "label": "具体证据", "value": -1, "side": "S" },
+        { "label": "实际经验", "value": -2, "side": "S" }
+      ]
+    },
+    {
+      "id": "q69",
+      "dimension": "lifestyle",
+      "mbti": true,
+      "text": "面对任务，你",
+      "options": [
+        { "label": "立即开始", "value": -2, "side": "J" },
+        { "label": "制定计划再开始", "value": -1, "side": "J" },
+        { "label": "看心情开始", "value": 1, "side": "P" },
+        { "label": "拖到最后", "value": 2, "side": "P" }
+      ]
+    },
+    {
+      "id": "q70",
+      "dimension": "independence",
+      "mbti": false,
+      "text": "做决定时，你",
+      "options": [
+        { "label": "完全自己做主", "value": 2, "side": "U" },
+        { "label": "主要听自己的", "value": 1, "side": "U" },
+        { "label": "参考他人意见", "value": -1, "side": "V" },
+        { "label": "需要别人帮忙决定", "value": -2, "side": "V" }
+      ]
+    },
+    {
+      "id": "q71",
+      "dimension": "outlook",
+      "mbti": false,
+      "text": "看到负面新闻，你",
+      "options": [
+        { "label": "相信世界还是好的", "value": 2, "side": "P" },
+        { "label": "这是个别现象", "value": 1, "side": "P" },
+        { "label": "世界越来越糟", "value": -1, "side": "M" },
+        { "label": "末日要来了", "value": -2, "side": "M" }
+      ]
+    },
+    {
+      "id": "q72",
+      "dimension": "attachment",
+      "mbti": false,
+      "text": "分手后还能做朋友吗",
+      "options": [
+        { "label": "不能，要彻底断联", "value": -2, "side": "S" },
+        { "label": "可以但不联系", "value": -1, "side": "S" },
+        { "label": "可以偶尔联系", "value": 1, "side": "X" },
+        { "label": "必须保持联系", "value": 2, "side": "X" }
+      ]
+    },
+    {
+      "id": "q73",
+      "dimension": "competition",
+      "mbti": false,
+      "text": "比赛输了，你",
+      "options": [
+        { "label": "很不甘心", "value": 2, "side": "W" },
+        { "label": "下次要努力赢", "value": 1, "side": "W" },
+        { "label": "重在参与", "value": -1, "side": "K" },
+        { "label": "本来就不在意", "value": -2, "side": "K" }
+      ]
+    },
+    {
+      "id": "q74",
+      "dimension": "stability",
+      "mbti": false,
+      "text": "你的心情",
+      "options": [
+        { "label": "一直很平稳", "value": 2, "side": "Z" },
+        { "label": "偶尔波动", "value": 1, "side": "Z" },
+        { "label": "经常变化", "value": -1, "side": "Y" },
+        { "label": "变幻莫测", "value": -2, "side": "Y" }
+      ]
+    },
+    {
+      "id": "q75",
+      "dimension": "creativity",
+      "mbti": false,
+      "text": "你的思维方式",
+      "options": [
+        { "label": "跳跃发散", "value": 2, "side": "N" },
+        { "label": "灵活多变", "value": 1, "side": "N" },
+        { "label": "逻辑线性", "value": -1, "side": "Q" },
+        { "label": "按部就班", "value": -2, "side": "Q" }
+      ]
+    },
+    {
+      "id": "q76",
+      "dimension": "reality",
+      "mbti": false,
+      "text": "你更相信",
+      "options": [
+        { "label": "看得见摸得着", "value": 2, "side": "B" },
+        { "label": "实际情况", "value": 1, "side": "B" },
+        { "label": "可能性", "value": -1, "side": "I" },
+        { "label": "梦想的力量", "value": -2, "side": "I" }
+      ]
+    },
+    {
+      "id": "q77",
+      "dimension": "energy",
+      "mbti": true,
+      "text": "你更喜欢",
+      "options": [
+        { "label": "热闹的大派对", "value": 2, "side": "E" },
+        { "label": "小型聚会", "value": 1, "side": "E" },
+        { "label": "一对一见面", "value": -1, "side": "I" },
+        { "label": "一个人待着", "value": -2, "side": "I" }
+      ]
+    },
+    {
+      "id": "q78",
+      "dimension": "selfworth",
+      "mbti": false,
+      "text": "你觉得自己值得",
+      "options": [
+        { "label": "最好的一切", "value": 2, "side": "H" },
+        { "label": "不错的待遇", "value": 1, "side": "H" },
+        { "label": "普普通通", "value": -1, "side": "L" },
+        { "label": "什么都不配", "value": -2, "side": "L" }
+      ]
+    },
+    {
+      "id": "q79",
+      "dimension": "emotion",
+      "mbti": false,
+      "text": "你会让别人知道你的脆弱吗",
+      "options": [
+        { "label": "经常分享", "value": 2, "side": "O" },
+        { "label": "对亲密的人说", "value": 1, "side": "O" },
+        { "label": "很少展示", "value": -1, "side": "R" },
+        { "label": "绝不示人", "value": -2, "side": "R" }
+      ]
+    },
+    {
+      "id": "q80",
+      "dimension": "risk",
+      "mbti": false,
+      "text": "面对未知，你",
+      "options": [
+        { "label": "兴奋期待", "value": 2, "side": "D" },
+        { "label": "好奇探索", "value": 1, "side": "D" },
+        { "label": "谨慎观望", "value": -1, "side": "C" },
+        { "label": "害怕回避", "value": -2, "side": "C" }
+      ]
+    }
+  ]
+}

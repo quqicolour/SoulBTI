@@ -1,0 +1,147 @@
+.donate-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  animation: fadeIn 0.2s ease;
+  padding: 20px;
+}
+
+.donate-modal {
+  background: linear-gradient(135deg, #fffbeb 0%, #ffffff 100%);
+  border-radius: 24px;
+  padding: 32px;
+  width: 100%;
+  max-width: 340px;
+  position: relative;
+  animation: slideUp 0.3s ease;
+  box-shadow: 
+    0 20px 60px rgba(0, 0, 0, 0.2),
+    0 0 0 1px rgba(255, 255, 255, 0.5) inset;
+  text-align: center;
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 36px;
+  height: 36px;
+  border: none;
+  background: rgba(245, 158, 11, 0.1);
+  border-radius: 50%;
+  font-size: 24px;
+  color: #92400e;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  line-height: 1;
+}
+
+.modal-close-btn:hover {
+  background: rgba(245, 158, 11, 0.2);
+  transform: rotate(90deg);
+}
+
+.donate-content {
+  text-align: center;
+}
+
+.donate-icon {
+  font-size: 48px;
+  margin-bottom: 12px;
+  display: inline-block;
+  animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+.donate-content h3 {
+  font-size: 20px;
+  color: #92400e;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.donate-desc {
+  font-size: 14px;
+  color: #78716c;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.qr-code-container {
+  background: white;
+  border-radius: 16px;
+  padding: 16px;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+  border: 2px solid #fef3c7;
+}
+
+.qr-code {
+  width: 100%;
+  max-width: 220px;
+  border-radius: 8px;
+  display: block;
+  margin: 0 auto;
+}
+
+.qr-placeholder {
+  padding: 40px 20px;
+  text-align: center;
+  color: #a8a29e;
+  background: #fafaf9;
+  border-radius: 8px;
+  flex-direction: column;
+}
+
+.qr-placeholder p {
+  margin: 0;
+  font-size: 14px;
+}
+
+.qr-tip {
+  font-size: 11px !important;
+  margin-top: 8px !important;
+  color: #d6d3d1;
+}
+
+.donate-thanks {
+  font-size: 14px;
+  color: #92400e;
+  font-weight: 500;
+  margin: 0;
+  padding: 8px 16px;
+  background: rgba(245, 158, 11, 0.1);
+  border-radius: 20px;
+  display: inline-block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

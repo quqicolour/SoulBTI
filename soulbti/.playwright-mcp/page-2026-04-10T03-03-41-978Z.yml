@@ -1,0 +1,23 @@
+- generic [active] [ref=e1]:
+  - alert [ref=e109]
+  - generic [ref=e110]:
+    - navigation [ref=e111]:
+      - link "← SBTI" [ref=e112] [cursor=pointer]:
+        - /url: /
+      - generic [ref=e113]: 第 1 / 31 题
+    - generic [ref=e117]: 1 / 31
+    - generic [ref=e118]:
+      - generic [ref=e119]: 第 1 题
+      - generic [ref=e120]: 朋友带了ta的朋友一起来玩，你最可能的状态是
+      - generic [ref=e121]:
+        - button "A 对\"朋友的朋友\"天然有点距离感，怕影响二人关系" [ref=e122] [cursor=pointer]:
+          - generic [ref=e123]: A
+          - generic [ref=e124]: 对"朋友的朋友"天然有点距离感，怕影响二人关系
+        - button "B 看对方，能玩就玩。" [ref=e125] [cursor=pointer]:
+          - generic [ref=e126]: B
+          - generic [ref=e127]: 看对方，能玩就玩。
+        - button "C 朋友的朋友应该也算我的朋友！要热情聊天" [ref=e128] [cursor=pointer]:
+          - generic [ref=e129]: C
+          - generic [ref=e130]: 朋友的朋友应该也算我的朋友！要热情聊天
+    - generic [ref=e131]: 选一个吧，世界已经够乱了，起码把题做完整。
+    - button "下一题 →" [disabled] [ref=e133]

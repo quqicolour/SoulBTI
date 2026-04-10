@@ -1,0 +1,247 @@
+.test-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+  padding: 20px;
+}
+
+.test-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.nav-back {
+  background: none;
+  border: none;
+  color: #92400e;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 8px 0;
+}
+
+.nav-back:hover {
+  color: #b45309;
+}
+
+.nav-progress {
+  font-size: 14px;
+  color: #78716c;
+  font-weight: 600;
+}
+
+.nav-spacer {
+  width: 60px;
+}
+
+.progress-bar {
+  height: 8px;
+  background: #e7e5e4;
+  border-radius: 4px;
+  overflow: hidden;
+  max-width: 640px;
+  margin: 0 auto 24px;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #f59e0b, #92400e);
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.question-card {
+  background: white;
+  border-radius: 24px;
+  padding: 32px;
+  max-width: 640px;
+  margin: 0 auto;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+}
+
+.question-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: #fffbeb;
+  color: #92400e;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+
+.dimension-tag {
+  background: #f59e0b;
+  color: white;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 11px;
+}
+
+.question-text {
+  font-size: 20px;
+  color: #1c1917;
+  line-height: 1.6;
+  margin-bottom: 32px;
+  font-weight: 600;
+}
+
+.options-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.option-btn {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: #fafaf9;
+  border: 2px solid #e7e5e4;
+  border-radius: 16px;
+  padding: 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: left;
+  width: 100%;
+}
+
+.option-btn:hover {
+  border-color: #f59e0b;
+  background: #fffbeb;
+}
+
+.option-btn.selected {
+  border-color: #92400e;
+  background: #fffbeb;
+  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.2);
+}
+
+.option-label {
+  width: 32px;
+  height: 32px;
+  background: #e7e5e4;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 700;
+  color: #78716c;
+  flex-shrink: 0;
+}
+
+.option-btn.selected .option-label {
+  background: #92400e;
+  color: white;
+}
+
+.option-text {
+  flex: 1;
+  font-size: 15px;
+  color: #44403c;
+  line-height: 1.5;
+}
+
+.option-side {
+  font-size: 12px;
+  color: #a8a29e;
+  font-weight: 600;
+  background: #f5f5f4;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+.question-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.btn-primary, .btn-secondary {
+  padding: 14px 28px;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+}
+
+.btn-primary {
+  background: #92400e;
+  color: white;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: #b45309;
+  transform: translateY(-2px);
+}
+
+.btn-primary:disabled {
+  background: #d6d3d1;
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  background: #f5f5f4;
+  color: #57534e;
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background: #e7e5e4;
+}
+
+.btn-secondary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.answer-progress {
+  text-align: center;
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid #e7e5e4;
+  font-size: 14px;
+  color: #78716c;
+}
+
+.ready-badge {
+  display: inline-block;
+  background: #10b981;
+  color: white;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 10px;
+  margin-left: 8px;
+}
+
+@media (max-width: 480px) {
+  .question-card {
+    padding: 24px 20px;
+  }
+  
+  .question-text {
+    font-size: 18px;
+  }
+  
+  .option-btn {
+    padding: 16px;
+  }
+  
+  .question-actions {
+    flex-direction: column;
+  }
+  
+  .btn-primary, .btn-secondary {
+    width: 100%;
+  }
+}
