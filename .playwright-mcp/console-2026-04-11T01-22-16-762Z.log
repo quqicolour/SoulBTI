@@ -1,0 +1,2 @@
+[   29391ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/static/js/bundle.js:28938
+[  188072ms] [ERROR] WebSocket connection to 'ws://localhost:3000/ws' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/static/js/bundle.js:31327

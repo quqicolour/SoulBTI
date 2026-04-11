@@ -3,12 +3,15 @@ import HomePage from './components/HomePage';
 import TestPage from './components/TestPage';
 import ResultPage from './components/ResultPage';
 import SharePage from './components/SharePage';
+import AudioController from './components/AudioController';
+import StarryBackground from './components/StarryBackground';
 import questionsData from './data/sbti-questions.json';
 import './App.css';
 
 function App() {
   const [page, setPage] = useState('home'); // home, test, result, share
   const [testMode, setTestMode] = useState(null); // 60 or 80
+  const [gender, setGender] = useState(null); // 'male' or 'female'
   const [answers, setAnswers] = useState([]);
 
   // 检测是否是分享链接（支持Vercel部署）
@@ -26,8 +29,9 @@ function App() {
   }, []);
 
   // 开始测试
-  const handleStartTest = useCallback((mode) => {
+  const handleStartTest = useCallback((mode, selectedGender) => {
     setTestMode(mode);
+    setGender(selectedGender);
     setPage('test');
     setAnswers([]);
     // 清除分享参数
@@ -55,6 +59,7 @@ function App() {
   const handleRetake = useCallback(() => {
     setPage('home');
     setTestMode(null);
+    setGender(null);
     setAnswers([]);
   }, []);
 
@@ -126,6 +131,7 @@ function App() {
       {page === 'result' && (
         <ResultPage
           answers={answers}
+          gender={gender}
           onRetake={handleRetake}
         />
       )}
@@ -135,6 +141,12 @@ function App() {
           onStartTest={handleStartTest}
         />
       )}
+      
+      {/* 星空背景 */}
+      <StarryBackground />
+      
+      {/* 背景音乐控制器 */}
+      <AudioController />
     </div>
   );
 }

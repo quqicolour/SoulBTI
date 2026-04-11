@@ -1,0 +1,32 @@
+- generic [ref=e3]:
+  - generic [ref=e4]:
+    - navigation [ref=e5]:
+      - button "← 返回" [ref=e6] [cursor=pointer]
+      - generic [ref=e7]: 第 1 / 60 题
+    - generic [ref=e10]:
+      - generic [ref=e11]:
+        - text: 第 1 题
+        - generic [ref=e12]: 控制欲望
+      - heading "小组作业deadline前夜，组员还在躺平，你会" [level=2] [ref=e13]
+      - generic [ref=e14]:
+        - button "A 我来领导指挥 A" [ref=e15] [cursor=pointer]:
+          - generic [ref=e16]: A
+          - generic [ref=e17]: 我来领导指挥
+          - generic [ref=e18]: A
+        - button "B 参与决策 A" [ref=e19] [cursor=pointer]:
+          - generic [ref=e20]: B
+          - generic [ref=e21]: 参与决策
+          - generic [ref=e22]: A
+        - button "C 听安排就好 G" [ref=e23] [cursor=pointer]:
+          - generic [ref=e24]: C
+          - generic [ref=e25]: 听安排就好
+          - generic [ref=e26]: G
+        - button "D 别来烦我 G" [ref=e27] [cursor=pointer]:
+          - generic [ref=e28]: D
+          - generic [ref=e29]: 别来烦我
+          - generic [ref=e30]: G
+      - generic [ref=e31]:
+        - button "← 上一题" [disabled] [ref=e32]
+        - button "跳过 →" [ref=e33] [cursor=pointer]
+      - generic [ref=e34]: 已回答 0 / 60 题
+  - button "🔧" [ref=e36] [cursor=pointer]

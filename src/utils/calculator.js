@@ -4,6 +4,17 @@
 
 // 计算各维度得分
 export function calculateDimensions(answers, questions) {
+  // 空值保护
+  if (!answers || !Array.isArray(answers) || answers.length === 0) {
+    console.warn('calculateDimensions: 无效的答案数据');
+    return {};
+  }
+  
+  if (!questions || !Array.isArray(questions)) {
+    console.warn('calculateDimensions: 无效的题目数据');
+    return {};
+  }
+  
   const dimensions = {};
   
   // 初始化所有维度
@@ -20,9 +31,11 @@ export function calculateDimensions(answers, questions) {
   
   // 累加各维度得分
   answers.forEach(answer => {
+    if (!answer || !answer.questionId) return;
+    
     const question = questions.find(q => q.id === answer.questionId);
-    if (question && dimensions[question.dimension]) {
-      dimensions[question.dimension].score += answer.value;
+    if (question && question.dimension && dimensions[question.dimension]) {
+      dimensions[question.dimension].score += (answer.value || 0);
       dimensions[question.dimension].count += 1;
     }
   });
@@ -71,7 +84,26 @@ export function calculateMBTI(dimensions) {
 
 // 计算SBTI人格匹配度
 export function calculateSBTIMatch(dimensions, personalities) {
+  // 空值保护
+  if (!dimensions || Object.keys(dimensions).length === 0) {
+    console.warn('calculateSBTIMatch: 无效的维度数据');
+    return [];
+  }
+  
+  if (!personalities || !Array.isArray(personalities) || personalities.length === 0) {
+    console.warn('calculateSBTIMatch: 无效的人格数据');
+    return [];
+  }
+  
   const matches = personalities.map(personality => {
+    // 确保 personality 有 dimensions 属性
+    if (!personality.dimensions || Object.keys(personality.dimensions).length === 0) {
+      return {
+        ...personality,
+        matchScore: 0
+      };
+    }
+    
     let matchScore = 0;
     let totalWeight = 0;
     
@@ -207,6 +239,99 @@ export function getDimensionDetails(dimensionId, score) {
     intensity,
     score: score.toFixed(2)
   };
+}
+
+// 计算理想伴侣匹配类型
+export function calculateIdealPartner(sbtiType, mbtiType, dimensions, personalities) {
+  // 空值保护
+  if (!dimensions || Object.keys(dimensions).length === 0) {
+    console.warn('calculateIdealPartner: 无效的维度数据');
+    return [];
+  }
+  
+  if (!personalities || !Array.isArray(personalities) || personalities.length === 0) {
+    console.warn('calculateIdealPartner: 无效的人格数据');
+    return [];
+  }
+  
+  // 基于当前人格特征，计算互补的理想伴侣特征
+  const idealDimensions = {};
+  
+  // 定义互补维度映射（某些维度相似更好，某些维度互补更好）
+  const complementaryMap = {
+    // 相似更好的维度
+    energy: 'similar',        // 能量来源 - 相似更好（内外向一致）
+    information: 'similar',   // 认知方式 - 相似更好
+    lifestyle: 'complementary', // 生活态度 - 互补更好（J和P互补）
+    
+    // 互补更好的维度
+    decision: 'complementary', // 决策方式 - 互补更好（T和F互补）
+    control: 'complementary',  // 控制欲 - 互补更好
+    attachment: 'similar',     // 依恋模式 - 相似更好
+    stability: 'complementary', // 情绪稳定 - 互补更好
+    
+    // 其他维度根据得分适度调整
+    selfworth: 'similar',
+    emotion: 'complementary',
+    risk: 'complementary',
+    independence: 'complementary',
+    outlook: 'similar',
+    reality: 'complementary',
+    competition: 'complementary',
+    creativity: 'similar'
+  };
+  
+  // 计算理想维度得分
+  Object.keys(dimensions).forEach(key => {
+    const currentScore = dimensions[key].score;
+    const strategy = complementaryMap[key] || 'similar';
+    
+    if (strategy === 'complementary') {
+      // 互补：取相反方向，但不要太极端
+      idealDimensions[key] = { score: -currentScore * 0.7 };
+    } else {
+      // 相似：取相近方向
+      idealDimensions[key] = { score: currentScore * 0.8 };
+    }
+  });
+  
+  // 计算所有 SBTI 类型与理想维度的匹配度
+  const matches = personalities.map(personality => {
+    // 确保 personality 有 dimensions 属性
+    if (!personality.dimensions || Object.keys(personality.dimensions).length === 0) {
+      return {
+        ...personality,
+        matchScore: 0
+      };
+    }
+    
+    let matchScore = 0;
+    let totalWeight = 0;
+    
+    Object.keys(personality.dimensions).forEach(dimKey => {
+      const expectedValue = personality.dimensions[dimKey];
+      const idealValue = idealDimensions[dimKey]?.score || 0;
+      
+      const diff = Math.abs(idealValue - expectedValue);
+      const weight = Math.abs(expectedValue) / 3;
+      
+      matchScore += (1 - Math.min(diff / 4, 1)) * weight;
+      totalWeight += weight;
+    });
+    
+    const finalScore = totalWeight > 0 ? (matchScore / totalWeight) * 100 : 0;
+    
+    return {
+      ...personality,
+      matchScore: Math.round(finalScore)
+    };
+  });
+  
+  // 按匹配度排序
+  matches.sort((a, b) => b.matchScore - a.matchScore);
+  
+  // 返回前3个最佳匹配
+  return matches.slice(0, 3);
 }
 
 // 生成雷达图数据

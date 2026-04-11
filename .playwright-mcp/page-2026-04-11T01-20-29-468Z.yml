@@ -1,0 +1,54 @@
+- generic [ref=e3]:
+  - generic [ref=e4]:
+    - generic [ref=e5]:
+      - generic [ref=e6]: ✦
+      - heading "看清世界，认清自己" [level=1] [ref=e7]
+      - paragraph [ref=e8]: 找到属于你的精准人格画像
+      - generic [ref=e9]:
+        - generic [ref=e10]:
+          - generic [ref=e11]: ✦
+          - generic [ref=e12]: 15维度
+          - generic [ref=e13]: 比MBTI更全面
+        - generic [ref=e14]:
+          - generic [ref=e15]: 🎯
+          - generic [ref=e16]: 27种人格
+          - generic [ref=e17]: 包含隐藏人格
+        - generic [ref=e18]:
+          - generic [ref=e19]: 🎭
+          - generic [ref=e20]: 双系统
+          - generic [ref=e21]: SBTI + MBTI
+    - generic [ref=e22]:
+      - heading "选择测试模式" [level=3] [ref=e23]
+      - generic [ref=e24]:
+        - button "60 题快速版 约5-8分钟 适合快速了解自己的核心人格特征" [ref=e25] [cursor=pointer]:
+          - generic [ref=e26]: "60"
+          - generic [ref=e27]: 题快速版
+          - generic [ref=e28]: 约5-8分钟
+          - generic [ref=e29]: 适合快速了解自己的核心人格特征
+        - button "推荐 80 题完整版 约10-15分钟 全面深入的人格分析，更精准的结果" [ref=e30] [cursor=pointer]:
+          - generic [ref=e31]: 推荐
+          - generic [ref=e32]: "80"
+          - generic [ref=e33]: 题完整版
+          - generic [ref=e34]: 约10-15分钟
+          - generic [ref=e35]: 全面深入的人格分析，更精准的结果
+    - contentinfo [ref=e36]:
+      - generic [ref=e37]:
+        - paragraph [ref=e38]: 嘿嘿 · 仅供娱乐，别当真
+        - generic [ref=e39]:
+          - button "☕ 请我喝咖啡" [ref=e40] [cursor=pointer]:
+            - generic [ref=e41]: ☕
+            - generic [ref=e42]: 请我喝咖啡
+          - link "📺 参考作者" [ref=e43] [cursor=pointer]:
+            - /url: https://space.bilibili.com/417038183
+            - generic [ref=e44]: 📺
+            - generic [ref=e45]: 参考作者
+        - generic [ref=e46]:
+          - link "@whalehat_oylm" [ref=e47] [cursor=pointer]:
+            - /url: https://x.com/whalehat_oylm
+            - img [ref=e48]
+            - generic [ref=e50]: "@whalehat_oylm"
+          - link "GitHub" [ref=e51] [cursor=pointer]:
+            - /url: https://github.com/quqicolour/SoulBTI
+            - img [ref=e52]
+            - generic [ref=e54]: GitHub
+  - button "🔧" [ref=e56] [cursor=pointer]

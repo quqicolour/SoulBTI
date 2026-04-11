@@ -1,0 +1,217 @@
+/* 音频控制器样式 - 点击触发版 */
+.audio-wrapper {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.audio-controller {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* 主按钮 */
+.audio-btn,
+.settings-icon-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 2px solid rgba(139, 92, 246, 0.4);
+  background: rgba(139, 92, 246, 0.2);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.audio-btn:hover,
+.settings-icon-btn:hover {
+  transform: scale(1.1);
+  background: rgba(139, 92, 246, 0.3);
+  border-color: rgba(139, 92, 246, 0.6);
+  box-shadow: 0 6px 25px rgba(139, 92, 246, 0.4);
+}
+
+.audio-btn:active,
+.settings-icon-btn:active {
+  transform: scale(0.95);
+}
+
+.audio-controller.playing .audio-btn {
+  background: rgba(139, 92, 246, 0.4);
+  border-color: rgba(139, 92, 246, 0.8);
+  animation: gentle-pulse 3s ease-in-out infinite;
+}
+
+@keyframes gentle-pulse {
+  0%, 100% {
+    box-shadow: 0 4px 20px rgba(139, 92, 246, 0.3);
+  }
+  50% {
+    box-shadow: 0 4px 30px rgba(139, 92, 246, 0.5);
+  }
+}
+
+/* 控制面板 */
+.audio-panel {
+  position: absolute;
+  bottom: 60px;
+  right: 0;
+  width: 260px;
+  background: rgba(30, 27, 75, 0.95);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
+  animation: slideUp 0.2s ease;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.audio-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.music-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 16px;
+  cursor: pointer;
+  padding: 4px;
+  transition: color 0.2s ease;
+}
+
+.close-btn:hover {
+  color: #fff;
+}
+
+/* 控制按钮组 */
+.audio-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.control-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.1);
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.control-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
+}
+
+/* 音量滑块 */
+.volume-slider {
+  flex: 1;
+  height: 6px;
+  -webkit-appearance: none;
+  appearance: none;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+  outline: none;
+  cursor: pointer;
+}
+
+.volume-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #c4b5fd;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.volume-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+}
+
+.volume-slider::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #c4b5fd;
+  cursor: pointer;
+  border: none;
+}
+
+.volume-value {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.7);
+  min-width: 36px;
+  text-align: right;
+}
+
+/* 错误状态 */
+.audio-controller.error .audio-btn {
+  background: rgba(239, 68, 68, 0.2);
+  border-color: rgba(239, 68, 68, 0.4);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* 响应式 */
+@media (max-width: 480px) {
+  .audio-wrapper {
+    bottom: 16px;
+    right: 16px;
+  }
+  
+  .audio-btn,
+  .settings-icon-btn {
+    width: 44px;
+    height: 44px;
+    font-size: 18px;
+  }
+  
+  .audio-panel {
+    width: 220px;
+    right: -5px;
+    padding: 14px;
+  }
+  
+  .volume-value {
+    display: none;
+  }
+}

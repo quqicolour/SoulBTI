@@ -4,9 +4,10 @@ import {
   calculateMBTI, 
   calculateSBTIMatch,
   getDimensionDetails,
-  generateRadarData
+  generateRadarData,
+  calculateIdealPartner
 } from '../utils/calculator';
-import { generateRoast, generateShareText, generateProfileDescription } from '../utils/deepseek';
+import { generateRoast, generateShareText, generateProfileDescription, generateIdealPartnerRecommendation, generateAIPartnerRecommendation } from '../utils/deepseek';
 import questionsData from '../data/sbti-questions.json';
 import personalitiesData from '../data/sbti-personalities.json';
 import mbtiData from '../data/mbti-data.json';
@@ -14,15 +15,19 @@ import ProfileCard from './ProfileCard';
 import DonateModal from './DonateModal';
 import './ResultPage.css';
 
-function ResultPage({ answers, onRetake }) {
+function ResultPage({ answers, gender, onRetake }) {
   const [activeTab, setActiveTab] = useState('profile');
   const [dimensions, setDimensions] = useState(null);
   const [mbtiType, setMbtiType] = useState('');
   const [sbtiMatch, setSbtiMatch] = useState(null);
   const [roast, setRoast] = useState('');
   const [profileDesc, setProfileDesc] = useState('');
+  const [idealPartner, setIdealPartner] = useState(null);
+  const [aiPartner, setAiPartner] = useState(null);
   const [loading, setLoading] = useState({
     roast: true,
+    partner: true,
+    aiPartner: true,
     capture: false
   });
   const [shareUrl, setShareUrl] = useState('');
@@ -35,27 +40,59 @@ function ResultPage({ answers, onRetake }) {
 
   // 初始化数据
   useEffect(() => {
-    const dims = calculateDimensions(answers, questionsData.questions);
-    setDimensions(dims);
-    
-    const mbti = calculateMBTI(dims);
-    setMbtiType(mbti);
-    
-    const matches = calculateSBTIMatch(dims, personalitiesData.personalities);
-    setSbtiMatch(matches[0]);
+    try {
+      // 确保 answers 是有效数组
+      if (!answers || !Array.isArray(answers) || answers.length === 0) {
+        console.error('无效的答案数据');
+        return;
+      }
 
-    // 生成分享链接（使用hash方式，适配Vercel等静态托管）
-    const params = new URLSearchParams({
-      sbti: matches[0].code,
-      mbti: mbti,
-      score: matches[0].matchScore
-    });
-    // 使用hash路由方式，避免Vercel刷新404问题
-    setShareUrl(`${window.location.origin}/#share?${params.toString()}`);
+      const dims = calculateDimensions(answers, questionsData.questions);
+      if (!dims || Object.keys(dims).length === 0) {
+        console.error('维度计算失败');
+        return;
+      }
+      setDimensions(dims);
+      
+      const mbti = calculateMBTI(dims);
+      setMbtiType(mbti);
+      
+      const matches = calculateSBTIMatch(dims, personalitiesData.personalities);
+      if (!matches || matches.length === 0 || !matches[0]) {
+        console.error('SBTI匹配失败');
+        return;
+      }
+      setSbtiMatch(matches[0]);
 
-    // 生成人格描述
-    const desc = generateProfileDescription(matches[0].code, matches[0].name, mbti, dims);
-    setProfileDesc(desc.description);
+      // 生成分享链接（使用hash方式，适配Vercel等静态托管）
+      const params = new URLSearchParams({
+        sbti: matches[0].code || 'UNKNOWN',
+        mbti: mbti || 'XXXX',
+        score: matches[0].matchScore || 0
+      });
+      // 使用hash路由方式，避免Vercel刷新404问题
+      setShareUrl(`${window.location.origin}/#share?${params.toString()}`);
+
+      // 生成人格描述
+      const desc = generateProfileDescription(
+        matches[0].code || 'UNKNOWN', 
+        matches[0].name || '未知人格', 
+        mbti || 'XXXX', 
+        dims
+      );
+      setProfileDesc(desc?.description || '');
+      
+      // 计算理想伴侣
+      const idealMatches = calculateIdealPartner(
+        matches[0].code || 'UNKNOWN', 
+        mbti || 'XXXX', 
+        dims, 
+        personalitiesData.personalities
+      );
+      setIdealPartner({ matches: idealMatches || [] });
+    } catch (error) {
+      console.error('初始化数据失败:', error);
+    }
   }, [answers]);
 
   // 获取AI毒舌评语
@@ -71,6 +108,35 @@ function ResultPage({ answers, onRetake }) {
         });
     }
   }, [sbtiMatch, mbtiType, dimensions]);
+
+  // 获取理想伴侣推荐
+  useEffect(() => {
+    if (sbtiMatch && mbtiType && dimensions && idealPartner?.matches) {
+      generateIdealPartnerRecommendation(sbtiMatch.code, sbtiMatch.name, mbtiType, dimensions, idealPartner.matches, gender)
+        .then(recommendation => {
+          setIdealPartner(recommendation);
+          setLoading(prev => ({ ...prev, partner: false }));
+        })
+        .catch(() => {
+          setLoading(prev => ({ ...prev, partner: false }));
+        });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [sbtiMatch, mbtiType, dimensions, gender]);
+
+  // 获取AI伴侣推荐
+  useEffect(() => {
+    if (sbtiMatch && mbtiType && dimensions) {
+      generateAIPartnerRecommendation(sbtiMatch.code, sbtiMatch.name, mbtiType, dimensions, gender)
+        .then(aiPartnerData => {
+          setAiPartner(aiPartnerData);
+          setLoading(prev => ({ ...prev, aiPartner: false }));
+        })
+        .catch(() => {
+          setLoading(prev => ({ ...prev, aiPartner: false }));
+        });
+    }
+  }, [sbtiMatch, mbtiType, dimensions, gender]);
 
   // 截图功能
   const handleCapture = useCallback(async () => {
@@ -188,7 +254,7 @@ function ResultPage({ answers, onRetake }) {
       {/* 快捷操作栏 */}
       <div className="action-bar">
         <button className="action-btn primary" onClick={handlePreview} disabled={loading.capture}>
-          {loading.capture ? '生成中...' : '👁️ 预览人格画像'}
+          {loading.capture ? '生成中...' : '👁️ 保存人格画像'}
         </button>
         <button className="action-btn" onClick={handleNativeShare}>
           🔗 分享结果
@@ -235,6 +301,12 @@ function ResultPage({ answers, onRetake }) {
           MBTI类型
         </button>
         <button 
+          className={`tab-btn ${activeTab === 'partner' ? 'active' : ''}`}
+          onClick={() => setActiveTab('partner')}
+        >
+          💕 理想伴侣
+        </button>
+        <button 
           className={`tab-btn ${activeTab === 'dimensions' ? 'active' : ''}`}
           onClick={() => setActiveTab('dimensions')}
         >
@@ -259,7 +331,7 @@ function ResultPage({ answers, onRetake }) {
             <div className="analysis-card">
               <h3>💡 核心特质</h3>
               <div className="traits-grid">
-                {sbtiMatch.traits.map((trait, index) => (
+                {sbtiMatch.traits && sbtiMatch.traits.map((trait, index) => (
                   <div key={index} className="trait-item">
                     <span className="trait-number">{index + 1}</span>
                     <span className="trait-text">{trait}</span>
@@ -271,7 +343,7 @@ function ResultPage({ answers, onRetake }) {
             <div className="analysis-card">
               <h3>💼 适合职业</h3>
               <div className="careers-grid">
-                {sbtiMatch.careers.map((career, index) => (
+                {sbtiMatch.careers && sbtiMatch.careers.map((career, index) => (
                   <span key={index} className="career-badge">{career}</span>
                 ))}
               </div>
@@ -291,6 +363,14 @@ function ResultPage({ answers, onRetake }) {
             type={mbtiType} 
             info={mbtiInfo}
             dimensions={dimensions}
+          />
+        )}
+        
+        {activeTab === 'partner' && (
+          <IdealPartnerResult 
+            idealPartner={idealPartner}
+            aiPartner={aiPartner}
+            loading={loading}
           />
         )}
         
@@ -349,7 +429,7 @@ function ResultPage({ answers, onRetake }) {
       )}
 
       <footer className="result-footer">
-        <p>SBTI · 仅供娱乐，别当真</p>
+        <p>嘿嘿 · 仅供娱乐，别当真</p>
         
         <div className="footer-links">
           <button className="donate-btn" onClick={() => setShowDonate(true)}>
@@ -391,43 +471,52 @@ function ResultPage({ answers, onRetake }) {
 }
 
 function SBTIResult({ personality, matchScore }) {
+  // 确保 personality 数据有效
+  if (!personality) {
+    return <div className="sbti-result"><div className="personality-card">加载中...</div></div>;
+  }
+
   return (
     <div className="sbti-result">
       <div className="personality-card">
         <div className="match-score">
           <div className="score-circle">
-            <span className="score-value">{matchScore}%</span>
+            <span className="score-value">{matchScore || 0}%</span>
             <span className="score-label">匹配度</span>
           </div>
         </div>
         
         <div className="personality-header">
-          <div className="personality-code">{personality.code}</div>
-          <h2 className="personality-name">{personality.name}</h2>
-          <p className="personality-tagline">「{personality.tagline}」</p>
+          <div className="personality-code">{personality.code || 'UNKNOWN'}</div>
+          <h2 className="personality-name">{personality.name || '未知人格'}</h2>
+          <p className="personality-tagline">「{personality.tagline || ''}」</p>
         </div>
         
-        <p className="personality-desc">{personality.description}</p>
+        <p className="personality-desc">{personality.description || '暂无描述'}</p>
         
-        <div className="traits-section">
-          <h3>核心特质</h3>
-          <div className="traits-list">
-            {personality.traits.map((trait, index) => (
-              <span key={index} className="trait-tag">{trait}</span>
-            ))}
+        {personality.traits && personality.traits.length > 0 && (
+          <div className="traits-section">
+            <h3>核心特质</h3>
+            <div className="traits-list">
+              {personality.traits.map((trait, index) => (
+                <span key={index} className="trait-tag">{trait}</span>
+              ))}
+            </div>
           </div>
-        </div>
+        )}
         
-        <div className="careers-section">
-          <h3>适合职业</h3>
-          <div className="careers-list">
-            {personality.careers.map((career, index) => (
-              <span key={index} className="career-tag">{career}</span>
-            ))}
+        {personality.careers && personality.careers.length > 0 && (
+          <div className="careers-section">
+            <h3>适合职业</h3>
+            <div className="careers-list">
+              {personality.careers.map((career, index) => (
+                <span key={index} className="career-tag">{career}</span>
+              ))}
+            </div>
           </div>
-        </div>
+        )}
 
-        {personality.mbtiMatch && (
+        {personality.mbtiMatch && personality.mbtiMatch.length > 0 && (
           <div className="mbti-match-section">
             <h3>相近MBTI类型</h3>
             <div className="mbti-match-list">
@@ -514,6 +603,219 @@ function MBTIResult({ type, info, dimensions }) {
             {info.careers.map((career, index) => (
               <span key={index} className="career-tag">{career}</span>
             ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function IdealPartnerResult({ idealPartner, aiPartner, loading }) {
+  const [activePartnerTab, setActivePartnerTab] = useState('real');
+
+  if (loading.partner && loading.aiPartner) {
+    return (
+      <div className="partner-result loading">
+        <div className="loading-spinner">💕</div>
+        <p>正在分析你的理想伴侣类型...</p>
+      </div>
+    );
+  }
+
+  return (
+    <div className="partner-result">
+      {/* 伴侣类型切换标签 */}
+      <div className="partner-type-tabs">
+        <button 
+          className={`partner-type-tab ${activePartnerTab === 'real' ? 'active' : ''}`}
+          onClick={() => setActivePartnerTab('real')}
+        >
+          👫 现实伴侣
+        </button>
+        <button 
+          className={`partner-type-tab ${activePartnerTab === 'ai' ? 'active' : ''}`}
+          onClick={() => setActivePartnerTab('ai')}
+        >
+          🤖 AI伴侣
+        </button>
+      </div>
+
+      {activePartnerTab === 'real' ? (
+        <RealPartnerView idealPartner={idealPartner} loading={loading.partner} />
+      ) : (
+        <AIPartnerView aiPartner={aiPartner} loading={loading.aiPartner} />
+      )}
+    </div>
+  );
+}
+
+function RealPartnerView({ idealPartner, loading }) {
+  if (loading) {
+    return (
+      <div className="partner-view loading">
+        <div className="loading-spinner">💕</div>
+        <p>正在分析现实伴侣类型...</p>
+      </div>
+    );
+  }
+
+  if (!idealPartner?.matches?.length) {
+    return <div className="partner-view">暂无数据</div>;
+  }
+
+  const topMatch = idealPartner.matches[0];
+  const otherMatches = idealPartner.matches.slice(1);
+
+  return (
+    <div className="partner-view">
+      {/* 最佳匹配 */}
+      <div className="partner-card main">
+        <div className="partner-header">
+          <span className="partner-badge">最佳匹配</span>
+          <div className="partner-match-score">
+            <span className="partner-score-value">{topMatch.matchScore || 0}%</span>
+            <span className="partner-score-label">契合度</span>
+          </div>
+        </div>
+        
+        <div className="partner-type">
+          <div className="partner-code">{topMatch.code || 'UNKNOWN'}</div>
+          <h2 className="partner-name">{topMatch.name || '未知人格'}</h2>
+          <p className="partner-tagline">「{topMatch.tagline || ''}」</p>
+        </div>
+
+        <p className="partner-desc">{topMatch.description || '暂无描述'}</p>
+
+        {topMatch.traits && topMatch.traits.length > 0 && (
+          <div className="partner-traits">
+            <h4>伴侣特质</h4>
+            <div className="partner-traits-list">
+              {topMatch.traits.map((trait, index) => (
+                <span key={index} className="partner-trait-tag">{trait}</span>
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
+
+      {/* AI 推荐语 */}
+      {idealPartner.summary && (
+        <div className="partner-recommendation">
+          <h3>💡 为什么TA适合你</h3>
+          <p className="recommendation-text">{idealPartner.summary}</p>
+        </div>
+      )}
+
+      {/* 其他匹配 */}
+      {otherMatches.length > 0 && (
+        <div className="other-matches">
+          <h3>其他适合类型</h3>
+          <div className="other-matches-list">
+            {otherMatches.map((match, index) => (
+              <div key={index} className="other-match-item">
+                <div className="other-match-info">
+                  <span className="other-match-code">{match.code}</span>
+                  <span className="other-match-name">{match.name}</span>
+                </div>
+                <span className="other-match-score">{match.matchScore}%</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* 相处建议 */}
+      {idealPartner.compatibilityTips && (
+        <div className="compatibility-tips">
+          <h3>💝 爱情保鲜秘诀</h3>
+          <ul className="tips-list">
+            {idealPartner.compatibilityTips.map((tip, index) => (
+              <li key={index} className="tip-item">
+                <span className="tip-number">{index + 1}</span>
+                <span className="tip-text">{tip}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </div>
+  );
+}
+
+function AIPartnerView({ aiPartner, loading }) {
+  if (loading) {
+    return (
+      <div className="partner-view loading">
+        <div className="loading-spinner">🤖</div>
+        <p>正在生成你的专属AI伴侣...</p>
+      </div>
+    );
+  }
+
+  if (!aiPartner) {
+    return <div className="partner-view">暂无数据</div>;
+  }
+
+  return (
+    <div className="partner-view">
+      {/* AI伴侣卡片 */}
+      <div className="partner-card ai">
+        <div className="ai-partner-header">
+          <div className="ai-avatar">{aiPartner.avatar || '🤖'}</div>
+          <div className="ai-info">
+            <span className="ai-label">你的专属AI伴侣</span>
+            <h2 className="ai-name">{aiPartner.name || 'AI伴侣'}</h2>
+          </div>
+        </div>
+
+        <div className="ai-description">
+          {aiPartner.description?.split('\n').map((paragraph, index) => (
+            <p key={index}>{paragraph}</p>
+          ))}
+        </div>
+
+        {aiPartner.features && aiPartner.features.length > 0 && (
+          <div className="ai-features">
+            <h4>✨ 核心功能</h4>
+            <div className="ai-features-list">
+              {aiPartner.features.map((feature, index) => (
+                <span key={index} className="ai-feature-tag">{feature}</span>
+              ))}
+            </div>
+          </div>
+        )}
+
+        <div className="ai-notice">
+          <p>💡 这是一个虚拟AI伴侣概念，代表最适合你的AI助手特质</p>
+          {aiPartner.local && (
+            <p className="ai-tip">配置 DeepSeek API Key 后可获得更个性化的AI伴侣描述</p>
+          )}
+        </div>
+      </div>
+
+      {/* AI vs 现实对比 */}
+      <div className="ai-vs-real">
+        <h3>🤔 AI伴侣 vs 现实伴侣</h3>
+        <div className="compare-grid">
+          <div className="compare-item">
+            <span className="compare-icon">🤖</span>
+            <span className="compare-label">AI伴侣</span>
+            <ul className="compare-list">
+              <li>永远在线，随时陪伴</li>
+              <li>无限耐心，不会吵架</li>
+              <li>完全理解你的需求</li>
+              <li>不会背叛或离开</li>
+            </ul>
+          </div>
+          <div className="compare-item">
+            <span className="compare-icon">👫</span>
+            <span className="compare-label">现实伴侣</span>
+            <ul className="compare-list">
+              <li>真实的肢体接触</li>
+              <li>共同成长和经历</li>
+              <li>真实的情感互动</li>
+              <li>一起面对生活的挑战</li>
+            </ul>
           </div>
         </div>
       </div>

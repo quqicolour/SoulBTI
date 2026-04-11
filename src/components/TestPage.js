@@ -5,11 +5,16 @@ function TestPage({ questions, totalQuestions, onComplete, onExit }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [answers, setAnswers] = useState({});
   const [selectedOption, setSelectedOption] = useState(null);
+  const [isTransitioning, setIsTransitioning] = useState(false);
 
   const currentQuestion = questions[currentIndex];
   const progress = ((currentIndex + 1) / questions.length) * 100;
 
   const handleSelectOption = (optionIndex) => {
+    // 防止快速重复点击
+    if (isTransitioning) return;
+    
+    setIsTransitioning(true);
     setSelectedOption(optionIndex);
     const option = currentQuestion.options[optionIndex];
     
@@ -28,6 +33,7 @@ function TestPage({ questions, totalQuestions, onComplete, onExit }) {
         setCurrentIndex(prev => prev + 1);
         setSelectedOption(null);
       }
+      setIsTransitioning(false);
     }, 300);
   };
 

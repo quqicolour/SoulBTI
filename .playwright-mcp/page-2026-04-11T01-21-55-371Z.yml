@@ -1,0 +1,32 @@
+- generic [ref=e3]:
+  - generic [ref=e67]:
+    - navigation [ref=e68]:
+      - button "← 返回" [ref=e69] [cursor=pointer]
+      - generic [ref=e70]: 第 1 / 60 题
+    - generic [ref=e73]:
+      - generic [ref=e74]:
+        - text: 第 1 题
+        - generic [ref=e75]: 自我价值
+      - heading "我不够好，周围的人都比我优秀" [level=2] [ref=e76]
+      - generic [ref=e77]:
+        - button "A 确实 L" [ref=e78] [cursor=pointer]:
+          - generic [ref=e79]: A
+          - generic [ref=e80]: 确实
+          - generic [ref=e81]: L
+        - button "B 有时 L" [ref=e82] [cursor=pointer]:
+          - generic [ref=e83]: B
+          - generic [ref=e84]: 有时
+          - generic [ref=e85]: L
+        - button "C 不是 H" [ref=e86] [cursor=pointer]:
+          - generic [ref=e87]: C
+          - generic [ref=e88]: 不是
+          - generic [ref=e89]: H
+        - button "D 我才是最优秀的 H" [ref=e90] [cursor=pointer]:
+          - generic [ref=e91]: D
+          - generic [ref=e92]: 我才是最优秀的
+          - generic [ref=e93]: H
+      - generic [ref=e94]:
+        - button "← 上一题" [disabled] [ref=e95]
+        - button "跳过 →" [ref=e96] [cursor=pointer]
+      - generic [ref=e97]: 已回答 0 / 60 题
+  - button "🔧" [ref=e56] [cursor=pointer]

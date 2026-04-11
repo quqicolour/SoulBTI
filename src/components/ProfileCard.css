@@ -249,6 +249,128 @@
   letter-spacing: 1px;
 }
 
+/* 移动端适配 */
+@media (max-width: 480px) {
+  .profile-card-wrapper {
+    width: 100%;
+    max-width: 340px;
+  }
+  
+  .profile-card {
+    padding: 20px 16px;
+    border-radius: 16px;
+  }
+  
+  .profile-header {
+    margin-bottom: 16px;
+  }
+  
+  .profile-logo {
+    font-size: 14px;
+  }
+  
+  .profile-watermark {
+    font-size: 9px;
+    letter-spacing: 2px;
+  }
+  
+  .profile-main {
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .sbti-section {
+    padding: 16px;
+    border-radius: 14px;
+  }
+  
+  .type-code-large {
+    font-size: 32px;
+    letter-spacing: 2px;
+  }
+  
+  .type-name {
+    font-size: 16px;
+  }
+  
+  .type-tagline {
+    font-size: 12px;
+  }
+  
+  .match-badge {
+    font-size: 10px;
+    padding: 4px 12px;
+  }
+  
+  .mbti-section {
+    padding: 12px;
+  }
+  
+  .mbti-type {
+    font-size: 22px;
+  }
+  
+  .profile-visual {
+    width: 100%;
+    flex-direction: row;
+    justify-content: center;
+    gap: 16px;
+  }
+  
+  .radar-container {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .dimension-pills {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px;
+  }
+  
+  .dim-pill {
+    padding: 6px 10px;
+    gap: 6px;
+  }
+  
+  .dim-code {
+    width: 20px;
+    height: 20px;
+    font-size: 10px;
+  }
+  
+  .dim-name {
+    font-size: 11px;
+  }
+  
+  .profile-roast {
+    padding: 14px;
+    margin-bottom: 16px;
+  }
+  
+  .roast-header {
+    margin-bottom: 8px;
+  }
+  
+  .roast-title {
+    font-size: 12px;
+  }
+  
+  .roast-content {
+    font-size: 12px;
+  }
+  
+  .profile-footer {
+    padding-top: 12px;
+  }
+  
+  .profile-desc {
+    font-size: 11px;
+    margin-bottom: 8px;
+  }
+}
+
 /* 截图模式优化 */
 @media print {
   .profile-card {
